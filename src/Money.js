@@ -2,15 +2,26 @@
 
 import {Currency} from './Currency';
 import {Calculator} from './Calculator';
+import {SimpleCalculator} from './calculator/SimpleCalculator';
 
 class Money {
 
     amount: number;
     currency: Currency;
 
-    static get calculator() {}
+    static get calculator(): Calculator {
+        if (null === this.calculator) {
+            this.calculator = new SimpleCalculator();
 
-    static set calculator(calculator: Calculator) {}
+            return this.calculator;
+        }
+
+        return this.calculator;
+    }
+
+    static set calculator(calculator: Calculator) {
+        this.calculator = calculator
+    }
 
     /**
      *
@@ -29,25 +40,25 @@ class Money {
     add(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money((this.amount+money.amount), this.currency);
+        return new Money(this.calculator.add(this.amount+money.amount), this.currency);
     }
 
     substract(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money((this.amount-money.amount), this.currency)
+        return new Money(this.calculator.subtract(this.amount-money.amount), this.currency)
     }
 
     multiply(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money((this.amount*money.amount), this.currency);
+        return new Money(this.calculator.multiply(this.amount*money.amount), this.currency);
     }
 
     divide(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money((this.amount/money.amount), this.currency);
+        return new Money(this.calculator.divide(this.amount/money.amount), this.currency);
     }
 
     /**
