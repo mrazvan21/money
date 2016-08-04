@@ -1,6 +1,6 @@
 'use strict';
 
-const  Calculator = require('./../Calculator');
+import {Calculator} from './../Calculator';
 
 class SimpleCalculator extends Calculator {
 
@@ -9,7 +9,7 @@ class SimpleCalculator extends Calculator {
     }
 
     static set calculator(calculator) {
-        
+
     }
 
     compare(a, b) {

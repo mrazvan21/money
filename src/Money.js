@@ -1,23 +1,18 @@
 'use strict';
 
-const Currency = require('./Currency');
+import {Currency} from './Currency';
 
 class Money {
+
+    amount: number;
+    currency: Currency;
 
     /**
      *
      * @param {Number} amount
      * @param {Currency} currency
      */
-    constructor(amount, currency) {
-        if (typeof amount != 'number') {
-            throw new Error('Amount must be Number');
-        }
-        
-        if (! (currency instanceof Currency)) {
-            throw new Error('Currency must be Currency');
-        }
-
+    constructor(amount: number, currency: Currency) {
         this.amount = amount;
         this.currency = currency;
     }
@@ -26,25 +21,25 @@ class Money {
      *
      * @param {Money} money
      */
-    add(money) {
+    add(money: Money): Money {
         this._assertSameCurrency(money);
 
         return new Money((this.amount+money.amount), this.currency);
     }
 
-    substract(money) {
+    substract(money: Money): Money {
         this._assertSameCurrency(money);
 
         return new Money((this.amount-money.amount), this.currency)
     }
 
-    multiply(money) {
+    multiply(money: Money): Money {
         this._assertSameCurrency(money);
 
         return new Money((this.amount*money.amount), this.currency);
     }
 
-    divide(money) {
+    divide(money: Money): Money {
         this._assertSameCurrency(money);
 
         return new Money((this.amount/money.amount), this.currency);
@@ -55,7 +50,7 @@ class Money {
      * @param {Money} money
      * @returns {*}
      */
-    isSameCurrency(money) {
+    isSameCurrency(money: Money): boolean {
         return this.currency.equals(money.currency);
     }
 
@@ -64,7 +59,7 @@ class Money {
      * @param {Money} money
      * @return {Boolean}
      */
-    equals(money) {
+    equals(money: Money): boolean {
         return this.isSameCurrency(money) && this.amount === money.amount;
     }
 
@@ -75,7 +70,7 @@ class Money {
         };
     }
 
-    _assertSameCurrency(money) {
+    _assertSameCurrency(money: Money): void {
         if (!this.isSameCurrency(money)) {
             throw new Error('Currencies must be identical');
         }
