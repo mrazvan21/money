@@ -1,11 +1,16 @@
 'use strict';
 
 import {Currency} from './Currency';
+import {Calculator} from './Calculator';
 
 class Money {
 
     amount: number;
     currency: Currency;
+
+    static get calculator() {}
+
+    static set calculator(calculator: Calculator) {}
 
     /**
      *

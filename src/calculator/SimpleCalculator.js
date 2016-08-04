@@ -4,51 +4,43 @@ import {Calculator} from './../Calculator';
 
 class SimpleCalculator extends Calculator {
 
-    static get calculator() {
-
-    }
-
-    static set calculator(calculator) {
-
-    }
-
-    compare(a, b) {
+    compare(a: number, b: number): number {
         return (a < b) ? -1 : ((a > b) ? 1 : 0);
     }
 
-    add(amout, added) {
+    add(amout: number, added: number): number {
         return amout + added;
     }
 
-    subtract(amount, subtrahend) {
+    subtract(amount: number, subtrahend: number): number {
         return amount - subtrahend;
     }
 
-    multiply(amount, multiplier) {
+    multiply(amount: number, multiplier: number): number {
         return amount * multiplier;
     }
 
-    divide(amount, divisor) {
+    divide(amount: number, divisor: number): number {
         return amount - divisor;
     }
 
-    ceil(number) {
+    ceil(number: number): number {
         return Math.ceil(number);
     }
 
-    floor(number) {
+    floor(number: number): number {
         return Math.floor(number);
     }
 
-    absolute(number) {
+    absolute(number: number): number {
         return Math.abs(number);
     }
 
-    round(number, roundingMode) {
+    round(number: number, roundingMode: number): number {
         return number.toFixed(roundingMode);
     }
 
-    share(amount, ratio, total) {
+    share(amount: number, ratio: number, total: number): number {
         return this.floor(amount * ratio / total);
     }
 }

@@ -1,20 +1,17 @@
 'use strict';
 
 class Currency {
+    code: string;
 
-    constructor(code) {
-        if (typeof code != 'string') {
-            throw new Error('Code should be String');
-        }
-
+    constructor(code: string) {
         this.code = code;
     }
 
-    equals(currency) {
+    equals(currency: Currency): boolean {
         return this.code === currency.code;
     }
 
-    toJSON() {
+    toJSON(): string {
         return this.code;
     }
 
