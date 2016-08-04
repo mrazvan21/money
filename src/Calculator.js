@@ -2,43 +2,43 @@
 
 class Calculator {
 
-    compare(a, b) {
+    compare(a: number, b: number): number {
         throw new Error("Abstract method!");
     }
 
-    add(amout, added) {
+    add(amout: number, added: number): number {
         throw new Error("Abstract method!");
     }
 
-    subtract(amount, subtrahend) {
+    subtract(amount: number, subtrahend: number): number {
         throw new Error("Abstract method!");
     }
 
-    multiply(amount, multiplier) {
+    multiply(amount: number, multiplier: number): number {
         throw new Error("Abstract method!");
     }
 
-    divide(amount, divisor) {
+    divide(amount: number, divisor: number): number {
         throw new Error("Abstract method!");
     }
 
-    ceil(number) {
+    ceil(number: number): number {
         throw new Error("Abstract method!");
     }
 
-    floor(number) {
+    floor(number: number): number {
         throw new Error("Abstract method!");
     }
 
-    absolute(number) {
+    absolute(number: number): number {
         throw new Error("Abstract method!");
     }
 
-    round(number, roundingMode) {
+    round(number: number, roundingMode: number): number {
         throw new Error("Abstract method!");
     }
 
-    share(amount, ratio, total) {
+    share(amount: number, ratio: number, total: number): number {
         throw new Error("Abstract method!");
     }
 }
