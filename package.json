@@ -2,9 +2,8 @@
   "name": "money",
   "version": "0.0.1",
   "description": "Javascript implementation of Fowler's Money pattern.",
-  "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "babel src -d dist"
   },
   "repository": {
     "type": "git",
