@@ -1,26 +1,24 @@
 'use strict';
 
-import {Currency} from './Currency';
-import {Calculator} from './Calculator';
-import {SimpleCalculator} from './calculator/SimpleCalculator';
+import Currency from './Currency';
+import Calculator from './Calculator';
+import SimpleCalculator from './calculator/SimpleCalculator';
 
 class Money {
 
     amount: number;
     currency: Currency;
 
-    static get calculator(): Calculator {
-        if (null === this.calculator) {
-            this.calculator = new SimpleCalculator();
-
-            return this.calculator;
+    static get CALCULATOR(): Calculator {
+        if (!Money.calculator) {
+            Money.calculator = new SimpleCalculator();
         }
 
-        return this.calculator;
+        return Money.calculator;
     }
 
-    static set calculator(calculator: Calculator) {
-        this.calculator = calculator
+    static set CALCULATOR(calculator: Calculator) {
+        Money.calculator = calculator;
     }
 
     /**
@@ -40,25 +38,37 @@ class Money {
     add(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money(this.calculator.add(this.amount+money.amount), this.currency);
+        return new Money(
+            Money.CALCULATOR.add(this.amount, money.amount),
+            this.currency
+        );
     }
 
     substract(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money(this.calculator.subtract(this.amount-money.amount), this.currency)
+        return new Money(
+            Money.CALCULATOR.subtract(this.amount, money.amount),
+            this.currency
+        );
     }
 
     multiply(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money(this.calculator.multiply(this.amount*money.amount), this.currency);
+        return new Money(
+            Money.CALCULATOR.multiply(this.amount, money.amount),
+            this.currency
+        );
     }
 
     divide(money: Money): Money {
         this._assertSameCurrency(money);
 
-        return new Money(this.calculator.divide(this.amount/money.amount), this.currency);
+        return new Money(
+            Money.CALCULATOR.divide(this.amount, money.amount),
+            this.currency
+        );
     }
 
     /**
@@ -93,4 +103,4 @@ class Money {
     }
 }
 
-module.exports = Money;
+export default Money;

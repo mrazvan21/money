@@ -1,8 +1,8 @@
 'use strict';
 
-import {Calculator} from './../Calculator';
+import Calculator from './../Calculator';
 
-class SimpleCalculator extends Calculator {
+class SimpleCalculator {
 
     compare(a: number, b: number): number {
         return (a < b) ? -1 : ((a > b) ? 1 : 0);
@@ -45,4 +45,4 @@ class SimpleCalculator extends Calculator {
     }
 }
 
-module.exports = SimpleCalculator;
+export default SimpleCalculator;

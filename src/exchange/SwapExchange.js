@@ -4,4 +4,4 @@ class SwapExchange {
 
 }
 
-module.exports = SwapExchange;
+export default SwapExchange;

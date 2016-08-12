@@ -20,4 +20,4 @@ class Currency {
     }
 }
 
-module.exports = Currency;
+export default Currency;

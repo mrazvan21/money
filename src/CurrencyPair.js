@@ -4,4 +4,4 @@ class CurrencyPair {
 
 }
 
-module.exports = CurrencyPair;
+export default CurrencyPair;
